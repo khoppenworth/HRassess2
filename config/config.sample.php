@@ -1,0 +1,1 @@
+<?php\nreturn ['DB_HOST'=>'127.0.0.1','DB_NAME'=>'epss2','DB_USER'=>'epss_user','DB_PASS'=>'epss_pass','BASE_URL'=>'http://localhost:8080','APP_NAME'=>'EPSS2 Self-Assessment','UPLOAD_DIR'=>__DIR__.'/../uploads','LOGO_FILE'=>__DIR__.'/../uploads/logo.png','SESSION_NAME'=>'epss2sess'];
