@@ -1,6 +1,3 @@
-<?php
-require_once __DIR__.'/../../config.php'; header('Content-Type: application/fhir+json'); $id=(int)($_GET['id']??0);
-$qs=[]; $st=$pdo->prepare("SELECT q.id,q.text,q.scale_max FROM questions q JOIN sections s ON s.id=q.section_id WHERE s.form_id=? ORDER BY q.id"); $st->execute([$id]);
-while($r=$st->fetch()){ $qs[]=["linkId"=>(string)$r['id'],"text"=>$r['text'],"type"=>"integer","extension":[{"url":"scaleMax","valueInteger"=>(int)$r['scale_max']}]]; }
-echo json_encode(["resourceType"=>"Questionnaire","id"=>(string)$id,"status"=>"active","item"=>$qs]);
-?>
+<?php require_once __DIR__.'/../common.php'; api_authenticate($pdo);
+$id=(int)($_GET['id']??0); if($id){$q=$pdo->prepare('SELECT * FROM questionnaires WHERE id=?');$q->execute([$id]);$qn=$q->fetch(); if(!$qn){json_out(['resourceType'=>'OperationOutcome','issue'=>[['severity'=>'error','diagnostics'=>'Not found']]],404);} $qs=$pdo->prepare('SELECT * FROM questions WHERE questionnaire_id=? ORDER BY id');$qs->execute([$id]);$items=[]; foreach($qs as $r){$items[]=['linkId'=>(string)$r['id'],'text'=>$r['text'],'type'=>'integer','maxValueInteger'=>(int)$r['max_score']];} json_out(['resourceType'=>'Questionnaire','id'=>(string)$qn['id'],'title'=>$qn['title'],'status'=>'active','item'=>$items]);}
+$rows=$pdo->query('SELECT id,title FROM questionnaires ORDER BY id DESC')->fetchAll(); json_out(array_map(fn($r)=>['resourceType'=>'Questionnaire','id'=>(string)$r['id'],'title'=>$r['title'],'status'=>'active'],$rows));

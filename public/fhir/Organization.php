@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/../../common.php'; api_authenticate($pdo); json_out(['resourceType'=>'Organization','id'=>'org-1','name'=>'EPSS Facility','active'=>true]);

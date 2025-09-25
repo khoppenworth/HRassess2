@@ -1,32 +1,12 @@
-# EPSS Self-Assessment (v1 structure)
+# EPSS Self-Assessment (Comprehensive, i18n folderized) — 2025-09-25
 
-See docs/Deployment\_Guide.md
-
-
-
-## Install quickstart
-
-
-
-Create DB \& import sql/install.sql
-
-
-
-Update creds/BASE\_URL in /config.php
-
-
-
-Drop AdminLTE 3.2 into /public/vendor/adminlte (and Font Awesome into /public/vendor/fontawesome)
-
-
-
-Ensure /public/uploads is writable
-
-
-
-Login: admin / admin123 → change immediately in Admin → Users
-
-
-
-If you want me to also ship a MySQL dump with data or fold in any exact EPSS v1 labels/screens you prefer, say the word and I’ll package that too.
-
+- i18n via `/lang/en.php`, `/lang/fr.php`, `/lang/am.php` (loader: `i18n.php`)
+- Root + `public/` mirrors
+- AdminLTE placeholder
+- Questionnaire editor, weighted scoring, multiple assessments
+- Analytics dashboard (simple canvas chart)
+- Upload handling (logo)
+- FHIR-like endpoints (Questionnaire, QuestionnaireResponse, Organization, Practitioner)
+- Looker/BI export endpoints (CSV/JSON)
+- Item banks + 10 seeded forms
+- Deployment guide: `docs/DeploymentGuide.md`

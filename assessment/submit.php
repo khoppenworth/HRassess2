@@ -1,0 +1,5 @@
+<?php require_once __DIR__.'/../config.php'; require_once __DIR__.'/../helpers.php'; require_once __DIR__.'/../i18n.php'; require_auth();
+$qid=(int)($_POST['qid']??0); $scores=$_POST['score']??[]; $st=$pdo->prepare('INSERT INTO assessments (user_id,questionnaire_id) VALUES (?,?)'); $st->execute([current_user()['id'],$qid]); $aid=(int)$pdo->lastInsertId();
+$total=0.0; foreach($scores as $qid_q=>$val){ $q=$pdo->prepare('SELECT max_score, weight_percent FROM questions WHERE id=?'); $q->execute([(int)$qid_q]); if($row=$q->fetch()){ $score=max(0,min((int)$val,(int)$row['max_score'])); $pdo->prepare('INSERT INTO responses (assessment_id,question_id,score) VALUES (?,?,?)')->execute([$aid,(int)$qid_q,$score]); $total+=($score/(int)$row['max_score'])*100.0*((int)$row['weight_percent']/100.0); }}
+$pdo->prepare('UPDATE assessments SET completed_at=NOW(), total_score=? WHERE id=?')->execute([$total,$aid]);
+include __DIR__.'/../templates/header.php'; ?><h2>Assessment Complete</h2><p>Total weighted score: <strong><?=number_format($total,2)?>%</strong></p><p><a class="btn" href="/dashboard.php">Back to Dashboard</a></p><?php include __DIR__.'/../templates/footer.php'; ?>
