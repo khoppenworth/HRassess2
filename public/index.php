@@ -1,1 +1,0 @@
-<?php require __DIR__.'/../app/bootstrap.php'; require_login(); include __DIR__.'/../views/partials/header.php'; ?><div class='container mt-4'><h3>Welcome</h3><p>Go to <a href='/staff/assessments.php'>Assessments</a>.</p></div><?php include __DIR__.'/../views/partials/footer.php'; ?>

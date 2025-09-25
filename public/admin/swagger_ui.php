@@ -1,1 +1,0 @@
-<!DOCTYPE html><html><head><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.17.14/swagger-ui.min.css'></head><body><div id='swagger-ui'></div><script src='https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.17.14/swagger-ui-bundle.min.js'></script><script>SwaggerUIBundle({url:'/api/openapi.json',dom_id:'#swagger-ui'})</script></body></html>

@@ -1,0 +1,2 @@
+<?php
+return {'login': 'መግቢያ', 'username': 'የተጠቃሚ ስም', 'password': 'የይለፍ ቃል', 'login_failed': 'መግባት አልተሳካም', 'dashboard': 'ዳሽቦርድ', 'my_assessments': 'የኔ ግምገማዎች', 'start_new_assessment': 'አዲስ ግምገማ ጀምር', 'form': 'ቅጽ', 'score': 'ውጤት', 'date': 'ቀን', 'view': 'እይ', 'org_analytics': 'የድርጅት ትንታኔ', 'analytics_blurb': 'ይህ አጠቃላይ ነጥቦች፣ ጨረስ መጠንን እና ትስስርን ያቀርባል።', 'open_analytics': 'ትንታኔ ክፈት', 'settings': 'መቼቶች', 'logout': 'ውጣ', 'users': 'ተጠቃሚዎች', 'forms': 'ቅጾች', 'item_banks': 'የንጥሎች ባንኮች', 'analytics': 'ትንታኔ'};

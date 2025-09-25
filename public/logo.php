@@ -1,1 +1,0 @@
-<?php $p=__DIR__.'/../uploads/logo.png'; if(!file_exists($p)){ header('Content-Type: image/svg+xml'); echo "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='60'><rect width='200' height='60' fill='#0d6efd'/><text x='10' y='38' font-size='22' fill='#fff'>Your Logo</text></svg>"; exit;} $img=file_get_contents($p); header('Content-Type: image/png'); echo $img;
